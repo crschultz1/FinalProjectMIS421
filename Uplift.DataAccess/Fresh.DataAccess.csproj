@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Uplift.Models\Uplift.Models.csproj" />
-    <ProjectReference Include="..\Uplift.Utility\Uplift.Utility.csproj" />
+    <ProjectReference Include="..\Uplift.Models\Fresh.Models.csproj" />
+    <ProjectReference Include="..\Uplift.Utility\Fresh.Utility.csproj" />
   </ItemGroup>
 
 </Project>
