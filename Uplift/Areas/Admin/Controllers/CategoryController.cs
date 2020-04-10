@@ -22,26 +22,6 @@ namespace Uplift.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult ViewCat(int? id)
-        {
-            var category = _unitOfWork.Category.Get(id.GetValueOrDefault());
-            if (category == null)
-            {
-                return NotFound();
-            }
-            return View(category);
-        }
-
-        public IActionResult List()
-        {
-            var categories = _unitOfWork.Category.GetAll();
-            if (categories == null)
-            {
-                return NotFound();
-            }
-            return View(categories);
-        }
-
         public IActionResult Upsert(int? id)
         {
             Category category = new Category();
@@ -57,32 +37,6 @@ namespace Uplift.Areas.Admin.Controllers
             return View(category);
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Category newCat)
-        {
-            if (ModelState.IsValid)
-            {
-                _unitOfWork.Category.Add(newCat);
-                _unitOfWork.Save();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(newCat);
-        }
-
-
-
-        public IActionResult DoCreate(Category newCat)
-        {
-            _unitOfWork.Category.Add(newCat);
-            return RedirectToAction("Index");
-        }
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Upsert(Category category)

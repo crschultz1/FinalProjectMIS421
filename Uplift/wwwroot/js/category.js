@@ -13,16 +13,12 @@ function loadDataTable() {
             "datatype": "json"
         },
         "columns": [
-            { "data": "name", "width": "20%" },
+            { "data": "name", "width": "50%" },
             { "data": "displayOrder", "width": "20%" },
             {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                                <a href="/Admin/category/ViewCat/${data}" class='btn btn-success text-white' style='cursor:pointer; width:100px;'>
-                                    <i class='far fa-view'></i> View
-                                </a>
-                                &nbsp;
                                 <a href="/Admin/category/Upsert/${data}" class='btn btn-success text-white' style='cursor:pointer; width:100px;'>
                                     <i class='far fa-edit'></i> Edit
                                 </a>

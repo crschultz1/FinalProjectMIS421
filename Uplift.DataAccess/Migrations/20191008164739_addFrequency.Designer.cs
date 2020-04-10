@@ -10,8 +10,8 @@ using Uplift.DataAccess.Data;
 namespace Uplift.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200218155430_AddedProductImage")]
-    partial class AddedProductImage
+    [Migration("20191008164739_addFrequency")]
+    partial class addFrequency
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -236,27 +236,23 @@ namespace Uplift.DataAccess.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("Uplift.Models.Product", b =>
+            modelBuilder.Entity("Uplift.Models.Frequency", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<float?>("Cost")
-                        .IsRequired()
-                        .HasColumnType("real");
+                    b.Property<int>("FrequencyCount")
+                        .HasColumnType("int");
 
-                    b.Property<byte[]>("ProductImage")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<string>("ProductName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Product");
+                    b.ToTable("Frequency");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

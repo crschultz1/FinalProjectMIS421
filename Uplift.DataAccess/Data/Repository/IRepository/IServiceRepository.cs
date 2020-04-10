@@ -6,10 +6,8 @@ using Uplift.Models;
 
 namespace Uplift.DataAccess.Data.Repository.IRepository
 {
-    public interface IProductRepository : IRepository<Product>
+    public interface IServiceRepository : IRepository<Service>
     {
-        IEnumerable<SelectListItem> GetCategoryListForDropDown();
-
-        void Update(Product product);
+        void Update(Service service);
     }
 }
