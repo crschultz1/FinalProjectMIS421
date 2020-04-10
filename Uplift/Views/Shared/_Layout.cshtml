@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Fresh.Utility
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@using Fresh.Extensions
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -14,6 +19,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
             <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">Fresh</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarColor01" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -38,9 +44,30 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
+                    @if (HttpContextAccessor.HttpContext.Session.GetObject<List<int>>(SD.SessionCart) != null)
+                    {
+                        <li style="color:white">
+                            <a asp-area="Customer" asp-controller="Cart" asp-action="Index" class="nav-link text-white">
+                                @{
+                                    var count = HttpContextAccessor.HttpContext.Session.GetObject<List<int>>(SD.SessionCart).Count;
+                                }
+                                <i class="fas fa-shopping-cart"></i>&nbsp; (@count)
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li style="color:white">
+                            <a href="#" class="nav-link text-white">
+
+                                <i class="fas fa-shopping-cart"></i>&nbsp; (0)
+                            </a>
+                        </li>
+                    }
                 </ul>
             </div>
             <partial name="_LoginPartial" />
+                </div>
         </nav>
     </header>
     <div class="container my-3">
