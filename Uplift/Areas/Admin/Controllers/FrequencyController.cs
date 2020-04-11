@@ -11,6 +11,7 @@ using Uplift.Models;
 namespace Uplift.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class FrequencyController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
