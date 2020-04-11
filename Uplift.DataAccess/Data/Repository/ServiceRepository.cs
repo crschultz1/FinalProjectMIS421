@@ -8,7 +8,7 @@ using Uplift.Models;
 
 namespace Uplift.DataAccess.Data.Repository
 {
-    public class ServiceRepository : Repository<Service> ,  IServiceRepository
+    public class ServiceRepository : Repository<Service> , IServiceRepository
     {
         private readonly ApplicationDbContext _db;
 
@@ -16,7 +16,8 @@ namespace Uplift.DataAccess.Data.Repository
         {
             _db = db;
         }
-        
+
+
         public void Update(Service service)
         {
             var objFromDb = _db.Service.FirstOrDefault(s => s.Id == service.Id);
@@ -29,6 +30,7 @@ namespace Uplift.DataAccess.Data.Repository
             objFromDb.CategoryId = service.CategoryId;
 
             _db.SaveChanges();
+
         }
     }
 }

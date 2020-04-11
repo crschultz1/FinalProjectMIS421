@@ -3,47 +3,44 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Fresh.Extensions;
-using Fresh.Utility;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Uplift.DataAccess.Data.Repository;
 using Uplift.DataAccess.Data.Repository.IRepository;
+using Uplift.Extensions;
 using Uplift.Models;
 using Uplift.Models.ViewModels;
+using Uplift.Utility;
 
 namespace Uplift.Controllers
 {
     [Area("Customer")]
     public class HomeController : Controller
     {
-        private readonly IUnitOfWork _unitofWork;
+        private readonly IUnitOfWork _unitOfWork;
         private HomeViewModel HomeVM;
-        private readonly ILogger<HomeController> _logger;
 
-       public HomeController(IUnitOfWork unitOfWork)
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _unitofWork = unitOfWork;
+            _unitOfWork = unitOfWork;
         }
-
 
         public IActionResult Index()
         {
             HomeVM = new HomeViewModel()
             {
-                CategoryList = _unitofWork.Category.GetAll(),
-                ServiceList = _unitofWork.Service.GetAll(includeProperties: "Frequency")
-
+                CategoryList = _unitOfWork.Category.GetAll(),
+                ServiceList = _unitOfWork.Service.GetAll(includeProperties: "Frequency")
             };
+
             return View(HomeVM);
         }
 
         public IActionResult Details(int id)
         {
-            var serviceFromDb = _unitofWork.Service.GetFirstOrDefault(includeProperties: "Category,Frequency", filter: c => c.Id == id);
+            var serviceFromDb = _unitOfWork.Service.GetFirstOrDefault(includeProperties: "Category,Frequency", filter: c => c.Id == id);
             return View(serviceFromDb);
         }
+
 
         public IActionResult AddToCart(int serviceId)
         {
@@ -65,6 +62,7 @@ namespace Uplift.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
 
         public IActionResult Privacy()
         {

@@ -1,7 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Uplift.DataAccess.Data.Repository;
+using Uplift.DataAccess.Data.Repository.IRepository;
 using Uplift.Models;
+using Uplift.Utility;
 
 namespace Uplift.Areas.Admin.Controllers
 {
@@ -72,7 +77,7 @@ namespace Uplift.Areas.Admin.Controllers
         public IActionResult Delete(int id)
         {
             var objFromDb = _unitOfWork.Category.Get(id);
-            if (objFromDb == null)
+            if(objFromDb == null)
             {
                 return Json(new { success = false, message = "Error while deleting." });
             }

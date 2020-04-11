@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Fresh.Models;
-using Uplift.DataAccess.Data.Repository;
-using Uplift.DataAccess.Data;
 using Uplift.DataAccess.Data.Repository.IRepository;
+using Uplift.Models;
 
-namespace Fresh.DataAccess.Data.Repository
+namespace Uplift.DataAccess.Data.Repository
 {
-    public class OrderHeaderRepository : Repository<OrderHeader>, IOrderHeaderRepository
+    public class OrderHeaderRepository : Repository<OrderHeader> , IOrderHeaderRepository
     {
         private readonly ApplicationDbContext _db;
 
@@ -19,7 +17,7 @@ namespace Fresh.DataAccess.Data.Repository
             _db = db;
         }
 
-        public void ChangeOrderStatus(int orderHeaderId, string status)
+       public void ChangeOrderStatus(int orderHeaderId, string status)
         {
             var orderFromDb = _db.OrderHeader.FirstOrDefault(o => o.Id == orderHeaderId);
             orderFromDb.Status = status;

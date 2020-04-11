@@ -12,17 +12,17 @@ namespace Uplift.Models
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Serivce Name")]
+        [Display(Name ="Serivce Name")]
         public string Name { get; set; }
 
         [Required]
         public double Price { get; set; }
 
-        [Display(Name = "Description")]
+        [Display(Name ="Description")]
         public string LongDesc { get; set; }
 
         [DataType(DataType.ImageUrl)]
-        [Display(Name = "Image")]
+        [Display(Name ="Image")]
         public string ImageUrl { get; set; }
 
         [Required]
@@ -36,6 +36,7 @@ namespace Uplift.Models
 
         [ForeignKey("FrequencyId")]
         public Frequency Frequency { get; set; }
-        
+
+
     }
 }

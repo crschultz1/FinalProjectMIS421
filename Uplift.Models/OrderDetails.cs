@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using Uplift.Models;
 
-namespace Fresh.Models
+namespace Uplift.Models
 {
     public class OrderDetails
     {
@@ -29,5 +28,6 @@ namespace Fresh.Models
 
         [Required]
         public double Price { get; set; }
+
     }
 }

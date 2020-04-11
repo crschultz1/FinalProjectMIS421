@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Uplift.DataAccess.Data.Repository.IRepository;
 
-namespace Uplift.DataAccess.Data.Repository
+namespace Uplift.DataAccess.Data.Repository.IRepository
 {
     public interface IUnitOfWork : IDisposable
     {
@@ -13,6 +12,9 @@ namespace Uplift.DataAccess.Data.Repository
         IOrderHeaderRepository OrderHeader { get; }
         IOrderDetailsRepository OrderDetails { get; }
 
+        ISP_Call SP_Call { get; }
+
+        IUserRepository User { get; }
         void Save();
     }
 }

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Uplift.Models;
 
-namespace Fresh.Models.ViewModels
+namespace Uplift.Models.ViewModels
 {
     public class CartViewModel
     {

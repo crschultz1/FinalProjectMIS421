@@ -14,7 +14,6 @@ namespace Uplift.Models
         [Display(Name="Category Name")]
         public string Name { get; set; }
 
-
         [Required]
         [Display(Name = "Display Order")]
         public int DisplayOrder { get; set; }

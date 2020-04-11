@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Uplift.Models
 {
+
     public class Frequency
     {
         [Key]

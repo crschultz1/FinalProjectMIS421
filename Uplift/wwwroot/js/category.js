@@ -5,7 +5,7 @@ $(document).ready(function () {
 });
 
 function loadDataTable() {
-
+    
     dataTable = $('#tblData').DataTable({
         "ajax": {
             "url": "/admin/category/GetAll",
@@ -32,9 +32,9 @@ function loadDataTable() {
             }
         ],
         "language": {
-            "emptyTable": "No records found."
+            "emptyTable":"No records found."
         },
-        "width": "100%"
+        "width":"100%"
     });
 }
 

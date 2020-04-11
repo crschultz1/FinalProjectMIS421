@@ -105,26 +105,27 @@
 </form>
 
 @section Scripts{
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.0.16/tinymce.min.js" integrity="sha384-c8bRgoqkCsu/KLuLAqDKnxwwDEek9q82ZcZtKfYsMbZO7L605T2zB3Ruvg85stmV" crossorigin="anonymous"></script>
+    <script src="https://cdn.tiny.cloud/1/n94ifuzvl80pchikopiwgz2esrw8n28dwcywvpejlqrregfp/tinymce/5/tinymce.min.js"></script> 
     <script>
+
     tinymce.init({
-    selector: 'textarea',
-    plugins: 'lists',
-    menubar: 'file edit format'
+        selector: 'textarea',
+        plugins: 'lists',
+        menubar: 'file edit format'
     });
 
     function validateInput() {
-    if (document.getElementById("uploadBox").value == "") {
-    swal("Error", "Please Select an Image", "error")
-    return false;
-    }
-    return true;
-    };
+        if (document.getElementById("uploadBox").value == "") {
+            swal("Error", "Please Select an Image", "error")
+            return false;
+        }
+        return true;
+            };
 
     $(document).ready(function () {
-    if (document.getElementById('txtPrice').value == "0") {
-    document.getElementById('txtPrice').value = '';
-    }
+        if (document.getElementById('txtPrice').value == "0") {
+            document.getElementById('txtPrice').value = '';
+        }
     });
     </script>
 }

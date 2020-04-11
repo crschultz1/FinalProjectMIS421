@@ -8,6 +8,5 @@ namespace Uplift.Models.ViewModels
     {
         public IEnumerable<Category> CategoryList { get; set; }
         public IEnumerable<Service> ServiceList { get; set; }
-
     }
 }

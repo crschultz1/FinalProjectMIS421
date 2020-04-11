@@ -17,7 +17,7 @@ $(document).ready(function () {
 });
 
 function loadDataTable(url) {
-
+    
     dataTable = $('#tblData').DataTable({
         "ajax": {
             "url": "/admin/order/" + url,
@@ -45,8 +45,8 @@ function loadDataTable(url) {
             }
         ],
         "language": {
-            "emptyTable": "No records found."
+            "emptyTable":"No records found."
         },
-        "width": "100%"
+        "width":"100%"
     });
 }

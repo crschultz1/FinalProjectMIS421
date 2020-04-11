@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Fresh.Extensions;
-using Fresh.Models;
-using Fresh.Models.ViewModels;
-using Fresh.Utility;
 using Microsoft.AspNetCore.Mvc;
 using Uplift.DataAccess.Data.Repository;
+using Uplift.DataAccess.Data.Repository.IRepository;
+using Uplift.Extensions;
 using Uplift.Models;
+using Uplift.Models.ViewModels;
+using Uplift.Utility;
 
-namespace Fresh.Areas.Customer.Controllers
+namespace Uplift.Areas.Customer.Controllers
 {
     [Area("Customer")]
     public class CartController : Controller
@@ -32,16 +32,16 @@ namespace Fresh.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetObject<List<int>>(SD.SessionCart) != null)
+            if(HttpContext.Session.GetObject<List<int>>(SD.SessionCart)!=null)
             {
                 List<int> sessionList = new List<int>();
                 sessionList = HttpContext.Session.GetObject<List<int>>(SD.SessionCart);
-                foreach (int serviceId in sessionList)
+                foreach(int serviceId in sessionList)
                 {
                     CartVM.ServiceList.Add(_unitOfWork.Service.GetFirstOrDefault(u => u.Id == serviceId, includeProperties: "Frequency,Category"));
                 }
             }
-            return View(CartVM);
+                return View(CartVM);
         }
 
 
@@ -87,7 +87,7 @@ namespace Fresh.Areas.Customer.Controllers
                 _unitOfWork.OrderHeader.Add(CartVM.OrderHeader);
                 _unitOfWork.Save();
 
-                foreach (var item in CartVM.ServiceList)
+                foreach(var item in CartVM.ServiceList)
                 {
                     OrderDetails orderDetails = new OrderDetails
                     {
@@ -98,7 +98,7 @@ namespace Fresh.Areas.Customer.Controllers
                     };
 
                     _unitOfWork.OrderDetails.Add(orderDetails);
-
+                    
                 }
                 _unitOfWork.Save();
                 HttpContext.Session.SetObject(SD.SessionCart, new List<int>());

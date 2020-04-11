@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Fresh.Extensions
+namespace Uplift.Extensions
 {
     public static class SessionExtensions
     {

@@ -8,7 +8,7 @@ using Uplift.Models;
 
 namespace Uplift.DataAccess.Data.Repository
 {
-    public class CategoryRepository : Repository<Category> ,  ICategoryRepository
+    public class CategoryRepository : Repository<Category> , ICategoryRepository
     {
         private readonly ApplicationDbContext _db;
 
@@ -23,7 +23,7 @@ namespace Uplift.DataAccess.Data.Repository
             {
                 Text = i.Name,
                 Value = i.Id.ToString()
-            });;
+            });
         }
 
         public void Update(Category category)
@@ -34,6 +34,7 @@ namespace Uplift.DataAccess.Data.Repository
             objFromDb.DisplayOrder = category.DisplayOrder;
 
             _db.SaveChanges();
+
         }
     }
 }

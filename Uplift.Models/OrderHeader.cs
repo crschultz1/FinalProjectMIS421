@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Fresh.Models
+namespace Uplift.Models
 {
     public class OrderHeader
     {
@@ -26,7 +26,6 @@ namespace Fresh.Models
         public string Status { get; set; }
         public string Comments { get; set; }
         public int ServiceCount { get; set; }
-
 
     }
 }
