@@ -110,3 +110,72 @@ body {
     border-radius: 2px;
 }
 
+.jumbotron1 {
+    padding: 30px 15px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #f9f9f9;
+    text-align: center;
+    background-size: cover;
+    background-image: url('../images/cable1.jpg');
+}
+
+.slim-image {
+    width: 100%;
+    padding: 2.25rem;
+    background-position: center;
+    background-size: cover;
+}
+
+.chat-box {
+    position: fixed;
+    right: 15px;
+    bottom: 0;
+    box-shadow: 0 0 0.1em #000;
+}
+
+.chat-closed {
+    width: 250px;
+    height: 35px;
+    background: #8bc34a;
+    line-height: 35px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #777;
+    color: #000;
+}
+
+.chat-header {
+    width: 250px;
+    height: 35px;
+    background: #8bc34a;
+    line-height: 33px;
+    text-indent: 20px;
+    border: 1px solid #777;
+    border-bottom: none;
+}
+
+.chat-content {
+    width: 250px;
+    height: 300px;
+    background: #ffffff;
+    border: 1px solid #777;
+    overflow-y: auto;
+    word-wrap:hyphenate;
+}
+
+.box {
+    width: 10px;
+    height: 10px;
+    background: blue;
+    float: left;
+    position: relative;
+    top: 11px;
+    left: 10px;
+    border: 1px solid #ededed;
+}
+
+.hide {
+    display: none;
+}
+

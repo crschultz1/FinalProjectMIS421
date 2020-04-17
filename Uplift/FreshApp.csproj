@@ -22,12 +22,12 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Uplift.DataAccess\Uplift.DataAccess.csproj" />
+    <Folder Include="wwwroot\images\services\" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\services\" />
+    <ProjectReference Include="..\Uplift.DataAccess\FreshApp.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>
