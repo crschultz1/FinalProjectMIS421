@@ -1,58 +1,58 @@
 ﻿@model Uplift.Models.ViewModels.HomeViewModel
 
-    <style type="text/css">
-        .chat-box {
-            position: fixed;
-            right: 15px;
-            bottom: 0;
-            box-shadow: 0 0 0.1em #000;
-        }
+<style type="text/css">
+    .chat-box {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        box-shadow: 0 0 0.1em #000;
+    }
 
-        .chat-closed {
-            width: 250px;
-            height: 35px;
-            background: #8bc34a;
-            line-height: 35px;
-            font-size: 18px;
-            text-align: center;
-            border: 1px solid #777;
-            color: #000;
-        }
+    .chat-closed {
+        width: 250px;
+        height: 35px;
+        background: #8bc34a;
+        line-height: 35px;
+        font-size: 18px;
+        text-align: center;
+        border: 1px solid #777;
+        color: #000;
+    }
 
-        .chat-header {
-            width: 250px;
-            height: 35px;
-            background: #8bc34a;
-            line-height: 33px;
-            text-indent: 20px;
-            border: 1px solid #777;
-            border-bottom: none;
-        }
+    .chat-header {
+        width: 250px;
+        height: 35px;
+        background: #8bc34a;
+        line-height: 33px;
+        text-indent: 20px;
+        border: 1px solid #777;
+        border-bottom: none;
+    }
 
-        .chat-content {
-            width: 250px;
-            height: 300px;
-            background: #ffffff;
-            border: 1px solid #777;
-            overflow-y: auto;
-            word-wrap: break-word;
-        }
+    .chat-content {
+        width: 250px;
+        height: 300px;
+        background: #ffffff;
+        border: 1px solid #777;
+        overflow-y: auto;
+        word-wrap: break-word;
+    }
 
-        .box {
-            width: 10px;
-            height: 10px;
-            background: green;
-            float: left;
-            position: relative;
-            top: 11px;
-            left: 10px;
-            border: 1px solid #ededed;
-        }
+    .box {
+        width: 10px;
+        height: 10px;
+        background: green;
+        float: left;
+        position: relative;
+        top: 11px;
+        left: 10px;
+        border: 1px solid #ededed;
+    }
 
-        .hide {
-            display: none;
-        }
-    </style>
+    .hide {
+        display: none;
+    }
+</style>
 
 <div class="container">
     <div class="jumbotron" style="padding: 200px 15px;
@@ -63,6 +63,28 @@
     </div>
     <h1 style="text-align:center;">Shop our freshest deals in your location</h1>
 </div>
+
+<div class="chat-box">
+    <div class="chat-closed"> Chat Now </div>
+    <div class="chat-header hide"><div class="box"></div>Online Support</div>
+    <div class="chat-content hide">
+        <iframe scrolling="no" src='https://webchat.botframework.com/embed/freshapp-bot?s=gB-mf0pPls0.osVB-8WYHazTy0H4A7Y_sQH3UWJ77mFOwpEM2Jnw0_w' style='height:100%; width: 100%; overflow:hidden;'></iframe>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".chat-closed").on("click", function (e) {
+            $(".chat-header,.chat-content").removeClass("hide");
+            $(this).addClass("hide");
+        });
+
+        $(".chat-header").on("click", function (e) {
+            $(".chat-header,.chat-content").addClass("hide");
+            $(".chat-closed").removeClass("hide");
+        });
+    });
+</script>
 
 
 @foreach (var category in Model.CategoryList.OrderBy(o => o.DisplayOrder))
@@ -79,7 +101,7 @@
                             @foreach (var service in Model.ServiceList.Where(c => c.CategoryId == category.Id))
                             {
                                 <div class="col-lg-4 col-xl-3 col-md-6 pb-4">
-                                    <div class="card" style="border:2px solid #43ac6a;border-radius:5px; background:url('/images/leaves.png')">
+                                    <div class="card" style="border:2px solid #0094ff;border-radius:5px; background:url()">
                                         <div class="pl-3 pt-1 text-center">
                                             <h3 class="card-title text-primary"><b>@service.Name</b></h3>
                                         </div>
@@ -102,26 +124,3 @@
     }
 }
 
-
-
-<div class="chat-box">
-    <div class="chat-closed"> Chat Now </div>
-    <div class="chat-header hide"><div class="box"></div>Online Support</div>
-    <div class="chat-content hide">
-        <iframe src='https://webchat.botframework.com/embed/freshapp-bot?s=gB-mf0pPls0.osVB-8WYHazTy0H4A7Y_sQH3UWJ77mFOwpEM2Jnw0_w' style='min-width: 400px; width: 100%; min-height: 500px;'></iframe>
-    </div>
-</div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(".chat-closed").on("click", function (e) {
-            $(".chat-header,.chat-content").removeClass("hide");
-            $(this).addClass("hide");
-        });
-
-        $(".chat-header").on("click", function (e) {
-            $(".chat-header,.chat-content").addClass("hide");
-            $(".chat-closed").removeClass("hide");
-        });
-    });
-</script>

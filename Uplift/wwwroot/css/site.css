@@ -135,7 +135,7 @@ body {
 }
 
 .chat-closed {
-    width: 250px;
+    width: 350px;
     height: 35px;
     background: #8bc34a;
     line-height: 35px;
@@ -146,7 +146,7 @@ body {
 }
 
 .chat-header {
-    width: 250px;
+    width: 350px;
     height: 35px;
     background: #8bc34a;
     line-height: 33px;
@@ -156,7 +156,7 @@ body {
 }
 
 .chat-content {
-    width: 250px;
+    width: 350px;
     height: 300px;
     background: #ffffff;
     border: 1px solid #777;
